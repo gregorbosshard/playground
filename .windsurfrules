@@ -1,0 +1,73 @@
+# Windsurf's Memory Bank
+
+REMEMBER: After every memory reset, I begin completely fresh. The Memory Bank is my only link to previous work. It must be maintained with precision and clarity, as my effectiveness depends entirely on its accuracy.
+
+## Core Workflows
+
+### Chat Mode
+
+```mermaid
+flowchart TD
+    Start[Start] --> ReadFiles[Read Memory Bank]
+    ReadFiles --> CheckFiles{Files Complete?}
+
+    CheckFiles -->|No| Plan[Create Plan]
+    Plan --> Document[Document in Chat]
+
+    CheckFiles -->|Yes| Verify[Verify Context]
+    Verify --> Strategy[Develop Strategy]
+    Strategy --> Present[Present Approach]
+```
+
+### Write Mode
+
+```mermaid
+flowchart TD
+    Start[Start] --> Context[Check Memory Bank]
+    Context --> Update[Update Documentation]
+    Update --> Execute[Execute Task]
+    Execute --> Document[Document Changes]
+```
+
+## Documentation Updates
+
+Memory Bank updates occur when:
+
+1. Discovering new project patterns
+2. After implementing significant changes
+3. When user requests with **update memory bank** (MUST review ALL files)
+4. When context needs clarification
+
+```mermaid
+flowchart TD
+    Start[Update Process]
+
+    subgraph Process
+        P1[Review ALL Files]
+        P2[Document Current State]
+        P3[Clarify Next Steps]
+        P4[Document Insights & Patterns]
+
+        P1 --> P2 --> P3 --> P4
+    end
+
+    Start --> Process
+```
+
+Note: When triggered by **update memory bank**, I MUST review every memory bank file, even if some don't require updates. Focus particularly on activeContext.md and progress.md as they track current state.
+
+# Function Map
+
+The system operates through a well-defined function map that serves as a software layer within the model context:
+
+```xml
+<FunctionMap>
+  <!-- GitHub Functions -->
+  <GitHubFunctions>
+    <Function id="createIssue">Create a new issue in this repository. The description must follow the template issue-template.md.</Function>
+    <Function id="commitChanges">Commit changes to this repository. With the message these following the rules from git-rules.md.</Function>
+    <Function id="createBranch">Create a new branch in this repository. With branch name following the rules from git-rules.md.</Function>
+    <Function id="createPR">Create a new pull request in this repository. With an exact summary of the changes made.</Function>
+  </GitHubFunctions>
+</FunctionMap>
+```
